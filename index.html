@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Estética - Cuidados com Beleza e Bem-estar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #764ba2;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #764ba2;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Sections */
+        .section {
+            background: white;
+            margin: 20px 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideInUp 0.8s ease;
+        }
+
+        .section-content {
+            padding: 60px 40px;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            text-align: center;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            text-align: left;
+        }
+
+        .about-image {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Contact */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">✨ Bella Estética</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Beleza & Bem-estar</h1>
+                <p>Transforme sua autoestima com nossos tratamentos exclusivos e personalizados</p>
+                <a href="#contato" class="btn">Agende seu horário</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <section id="servicos" class="section">
+                <div class="section-content">
+                    <h2>Nossos Serviços</h2>
+                    <p>Oferecemos uma ampla gama de tratamentos estéticos para realçar sua beleza natural</p>
+                    
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">💆‍♀️</div>
+                            <h3>Limpeza de Pele</h3>
+                            <p>Tratamento profundo para renovação e purificação da pele</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">💅</div>
+                            <h3>Manicure & Pedicure</h3>
+                            <p>Cuidados completos para suas unhas com produtos de qualidade</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">👁️</div>
+                            <h3>Design de Sobrancelhas</h3>
+                            <p>Modelagem perfeita para destacar seu olhar</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">✨</div>
+                            <h3>Tratamentos Faciais</h3>
+                            <p>Procedimentos personalizados para cada tipo de pele</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">🧴</div>
+                            <h3>Hidratação</h3>
+                            <p>Tratamentos intensivos para pele seca e ressecada</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">💖</div>
+                            <h3>Massagem Relaxante</h3>
+                            <p>Momentos de relaxamento e bem-estar para você</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sobre" class="section">
+                <div class="section-content">
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h2>Sobre Nós</h2>
+                            <p>Com anos de experiência no mercado de estética, nossa missão é proporcionar momentos únicos de beleza e bem-estar. Utilizamos os melhores produtos e técnicas mais modernas para garantir resultados excepcionais.</p>
+                            <p>Nossa equipe é formada por profissionais qualificados e apaixonados pelo que fazem, sempre prontos para oferecer um atendimento personalizado e acolhedor.</p>
+                        </div>
+                        <div class="about-image">
+                            <p>🏛️ Espaço moderno e acolhedor<br>para seu conforto e bem-estar</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contato" class="section">
+                <div class="section-content">
+                    <h2>Entre em Contato</h2>
+                    <p>Agende seu horário e venha conhecer nossos serviços. Estamos prontas para cuidar de você!</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <h3>WhatsApp</h3>
+                            <p>(54) 99999-9999</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <h3>E-mail</h3>
+                            <p>contato@bellaestetica.com.br</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <h3>Endereço</h3>
+                            <p>Erechim - RS</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕒</div>
+                            <h3>Horário</h3>
+                            <p>Seg a Sex: 8h às 18h<br>Sáb: 8h às 14h</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Bella Estética. Todos os direitos reservados.</p>
+            <p>Desenvolvido com ❤️ para realçar sua beleza</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para links do menu
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Efeito de parallax suave no header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            if (scrolled > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Animação dos cards de serviço
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.8s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
